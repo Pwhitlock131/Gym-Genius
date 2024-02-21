@@ -64,10 +64,29 @@ const authenticateUser = (req, res, next) => {
 // Endpoint to log a workout
 app.post('/workout', authenticateUser, async (req, res) => {
     try {
-        const { userId, date, exercises, duration } = req.body;
-        const workout = new Workout({ userId, date, exercises, duration });
+        // Extract the workout dtata from request body and validate the input data
+        const { exerciseType, duration, date } = req.body;
+        if (!exerciseType || !duration || !date) {
+            return res.status(400).json({ error: 'Exercise type, duration, and date are required' });
+        }
+        // Ensure the workout duration is a positive number and date is a valid string
+        if (typeof duration !== 'number' || duration <= 0) {
+            return res.status(400).json({ error: 'Duration must be a positive number' });
+        }
+        if (!Date.parse(date)) {
+            return res.status(400).json({ error: 'Invalid date format. Please provide a valid date string' });
+        }
+         // Construct the workout object
+        const workoutData = {
+            userId: req.user.userId, 
+            exerciseType,
+            duration,
+            date: new Date(date), // Converting the date string to Date object
+        };
+        // Save workout data to database
+        const workout = new Workout(workoutData);
         await workout.save();
-        res.status(201).json(workout);
+        
     } catch (error) {
         console.error('Error logging workout:', error);
         res.status(500).json({ error: 'Internal Server Error' });
@@ -77,15 +96,39 @@ app.post('/workout', authenticateUser, async (req, res) => {
 // Endpoint to create a new user profile
 app.post('/user', async (req, res) => {
     try {
-        const { username, email, password } = req.body;
-        // Validate unique username and email
-        const existingUser = await User.findOne({ $or: [{ username }, { email }] });
-        if (existingUser) {
-            return res.status(400).json({ error: 'Username or email already exists' });
+        const { username, email, password, age, gender } = req.body;
+
+        // Validate input data
+        if (!username || !email || !password || !age || !gender) {
+                return res.status(400).json({ error: 'All fields are required' });
         }
-        const user = new User({ username, email, password });
-        await user.save();
-        res.status(201).json(user);
+
+        // Check if the user already exists by email
+        let existingUser = await User.findOne({ email });
+
+        if (existingUser) {
+            // If user exists, update the users profile
+            existingUser.username = username;
+            existingUser.password = password;
+            existingUser.age = age;
+            existingUser.gender = gender;
+
+            await user.save();
+            res.status(201).json(user);
+        } else {
+            // If the user does not exist, create a new user profile
+            const newUser = new User({
+                username,
+                email,
+                password,
+                age,
+                gender
+            });
+            
+            await newUser.save();
+            res.status(201).json(newUser);
+        }
+
     } catch (error) {
         console.error('Error creating user profile:', error);
         res.status(500).json({ error: 'Internal Server Error' });
