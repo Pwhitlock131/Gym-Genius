@@ -16,6 +16,6 @@
         "concurrently": "^8.2.0"
     },
     "dependencies": {
-        
+        "mongoose": "^8.1.2"
     }
 }
