@@ -1,45 +1,31 @@
-// src/components/Navbar/Navbar.jsx
-
 import React from 'react';
 import { Link } from 'react-router-dom';
+import auth from '../../utils/auth';
+console.log(auth);
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
-      <div className="navbar-container">
-        <Link to="/" className="navbar-logo">
-          Gym Genius
-        </Link>
-        <ul className="navbar-menu">
-          <li className="navbar-item">
-            <Link to="/" className="navbar-link">
-              Home
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link to="/login" className="navbar-link">
-              Login
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link to="/logout" className="navbar-link">
-              Logout
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link to="/profile" className="navbar-link">
-              Profile
-            </Link>
-          </li>
-          <li className="navbar-item">
-            <Link to="/signup" className="navbar-link">
-              Signup
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  );
-};
+    <ul className='navbar'>
+      <li>
+        <Link to='/'>Home</Link>
+      </li>
+      <li><Link to='/profile'>Workouts</Link></li>
 
-export default Navbar;
+      <div>
+        {auth.loggedIn() ? (
+          <div>
+            {/* <li>Welcome User!</li> */}
+            <button onClick={auth.logout}>Logout</button>
+          </div>
+        ) : (
+          <div>
+            {/* <li>Welcome Guest!</li> */}
+            <Link to='/logIn'>Log In</Link>
+          </div>
+        )}
+      </div>
+    </ul>
+  )
+}
+
+export default Navbar
