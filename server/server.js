@@ -1,16 +1,13 @@
 const express = require('express');
-<<<<<<< HEAD
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
 const setup = require('./index');
-=======
+
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const path = require('path');
 const { authMiddleware } = require('./utils/auth');
->>>>>>> 0e46e3a139f2e0fd10692fb310ba47b5035a9c72
-
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 

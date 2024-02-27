@@ -55,7 +55,6 @@ const resolvers = {
       // If user attempts to execute this mutation and isn't logged in, throw an error
       throw AuthenticationError;
     },
-    // Set up mutation so a logged in user can only remove their profile and no one else's
   
     // Make it so a logged in user can only remove a skill from their own profile
     removeWorkout: async (parent, { workoutID }, context) => {
