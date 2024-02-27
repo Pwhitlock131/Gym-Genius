@@ -1,5 +1,6 @@
 const typeDefs = `
-scalar Date
+  scalar Date
+  
   type User {
     _id: ID
     username: String!
@@ -11,13 +12,14 @@ scalar Date
     weightGoal: Int!
     workouts: [Workout]
   }
-type: Workout{
+  
+  type Workout {
     _id: ID
-    name:String!
-    duration:Int!
+    name: String!
+    duration: Int!
     createdAt: Date
     type: String!
-}
+  }
 
   type Auth {
     token: ID!
@@ -30,11 +32,10 @@ type: Workout{
   }
 
   type Mutation {
-    addUser(username: String!, email: String!, password: String!, name:String!, age: Int!, height: Int!, weightGoal:Int!): Auth
+    addUser(username: String!, email: String!, password: String!, name: String!, age: Int!, height: Int!, weightGoal: Int!): Auth
     login(email: String!, password: String!): Auth
-
     addWorkout(name: String!, duration: Int!, type: String!): User
-    removeWorkout(workoutID:ID!): User
+    removeWorkout(workoutID: ID!): User
   }
 `;
 
