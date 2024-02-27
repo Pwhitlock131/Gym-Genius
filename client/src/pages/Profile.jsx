@@ -1,6 +1,6 @@
 // src/pages/Profile.jsx
-
 import React from 'react';
+import './Profile.css'; // Import the CSS file
 
 const Profile = () => {
   // You can fetch user data or any necessary information here
