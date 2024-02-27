@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import {Outlet} from 'react-router-dom';
 import {
@@ -6,7 +7,6 @@ import {
     ApolloProvider,
     createHttpLink,
   } from "@apollo/client";
-  import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
     uri: '/graphql',
