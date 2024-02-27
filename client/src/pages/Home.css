@@ -3,20 +3,31 @@
 .home-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 40px;
     text-align: center;
+    background-color: #f1f8e9; /* Light green background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   .home-title {
-    font-size: 30px;
+    font-size: 36px;
     margin-bottom: 20px;
-    color: #333; /* Change the color as needed */
+    color: #3949ab; /* Indigo color */
   }
   
   .home-description {
-    font-size: 18px;
-    line-height: 1.5;
-    color: #555;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #616161; /* Gray color */
+    margin-bottom: 30px;
+  }
+  
+  .awesome-feature {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e91e63; /* Pink color */
   }
   
   /* Add more styles as necessary */
+  
