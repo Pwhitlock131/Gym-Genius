@@ -1,13 +1,14 @@
-// src/pages/Home.jsx
-
 import React from 'react';
+import './Home.css'; // Import the CSS file
 
 
 const Home = () => {
   return (
-    <div>
-      <h1>Welcome to Your Personal Gym Genius</h1>
-      <p>This is the home page of our fitness Gym Genius application.</p>
+    <div className="home-container">
+      <h1 className="home-title">Welcome to Your Personal Gym Genius</h1>
+      <p className="home-description">
+        This is the home page of our fitness Gym Genius application.
+      </p>
       {/* Add more info if necessary */}
     </div>
   );
