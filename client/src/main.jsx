@@ -5,7 +5,12 @@ import App from './App.jsx';
 import Home from './pages/Home.jsx';
 //import Login from './pages/Login.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
+import Header from './pages/Header.jsx'
+import Login from './pages/Login.jsx'
+import Logout from './pages/Logout.jsx'
 import Profile from './pages/Profile.jsx'
+ // import Signup from './pages/Signup.jsx'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const router = createBrowserRouter([
@@ -19,7 +24,15 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {path:"/profile",
-        element: <Profile />}
+        element: <Profile />},
+      {path:"/Logout",
+        element: <Logout/>},
+      {path:"/Login",
+        element: <Login />},
+      {path:"/Signup",
+        element: <Signup />},
+      {path:"/Header",
+        element: <Header />},
     ],
   },
 ]);
