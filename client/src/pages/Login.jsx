@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../graphql/mutations';
+// import { LOGIN_USER } from '../graphql/mutations';
+import { LOGIN_USER } from '../utils/mutations';
 import './Login.css'; // Import the CSS file
 
 const Login = ({ history }) => {
