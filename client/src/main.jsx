@@ -6,7 +6,7 @@ import Home from './pages/Home.jsx';
 //import Login from './pages/Login.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
 import Profile from './pages/Profile.jsx'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const router = createBrowserRouter([
   {

@@ -5,7 +5,7 @@
     margin: 0 auto;
     padding: 40px;
     text-align: center;
-    background-color: #f1f8e9; /* Light green background */
+    background-color: #f1f8e9; /* Light green background 
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
@@ -21,7 +21,7 @@
     font-size: 18px;
     line-height: 1.5;
     color: #555;
-  } */ */
+  } */ 
   
   /* Add more styles as necessary */
 
@@ -70,9 +70,6 @@
   
   .nav-link:hover {
     color: var(--main-color);
-  }
-    
-    color: #3949ab; /* Indigo color */
   }
   
   .home-description {
