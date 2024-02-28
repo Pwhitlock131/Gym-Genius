@@ -30,6 +30,15 @@ export default function Home() {
   // const isSignupPage = location.pathname === '/signup';
 
 
+
+import '../../src/components/Navbar/Navbar.jsx'
+import '../../src/components/Posts/Calender.jsx';
+
+
+
+
+const Home = () => {
+
   return (
 
     <>
