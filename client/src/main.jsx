@@ -12,6 +12,9 @@ import Profile from './pages/Profile.jsx'
  // import Signup from './pages/Signup.jsx'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import SignUp from './pages/Signup.jsx'
+import Signup from './pages/Signup.jsx';
+import Login from './pages/Login.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,15 +27,20 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {path:"/profile",
-        element: <Profile />},
-      {path:"/Logout",
-        element: <Logout/>},
-      {path:"/Login",
-        element: <Login />},
-      {path:"/Signup",
-        element: <Signup />},
-      {path:"/Header",
-        element: <Header />},
+        element: <Profile />
+      },
+      {path:"/signup",
+        element: <Signup />
+      },
+      {path:"/login",
+        element: <Login />
+      },
+      {path:"/logout",
+        element: <Logout />
+      },
+      {path:"/errorPage",
+        element: <ErrorPage />
+      },
     ],
   },
 ]);

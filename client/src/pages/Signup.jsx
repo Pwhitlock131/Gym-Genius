@@ -1,116 +1,137 @@
-// import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
-import { createUser } from "../utils/API";
+import { useState, useEffect } from 'react';
+import { Form, Button, Alert } from 'react-bootstrap';
+import { useMutation } from '@apollo/client';
 import Auth from "../utils/auth";
-import Header from "../components/Header";
+import { ADD_USER } from '../utils/mutations'
 
 
-export default function Signup() {
-  const loggedIn = Auth.loggedIn();
-
-  // set up the orginal state of the form
-  const [formState, setFormState] = useState({
-    username: "",
-    email: "",
-    password: "",
+const SignUp = () => {
+  // set initial form state
+  const [userFormData, setUserFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
   });
-
+  // set state for form validation
+  const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
-  // update state based on form input
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  const [addUser, { error }] = useMutation(ADD_USER);
 
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+  useEffect(() => {
+    if (error) {
+      setShowAlert(true);
+    } else {
+      setShowAlert(false);
+    }
+  }, [error]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
   };
 
-  // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // use try/catch to handle errors
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
     try {
-      // create new users
-      const response = await createUser(formState);
-
-      // check the response
-      if (!response.ok) {
-        throw new Error("OOOPS something went wrong!");
-      }
-
-      // get token and user data from server
-      const { token } = await response.json();
-      // use authenticaiton functionality
-      Auth.login(token);
-
-
+      const { data } = await addUser({
+        variables: { ...userFormData },
+      });
+      console.log(data);
+      Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
-      setShowAlert(true);
     }
+
+    setUserFormData({
+      username: '',
+      email: '',
+      password: '',
+    });
   };
 
-  // Is the user is logged in, redirect to the home page
-  if (loggedIn) {
-    return <Navigate to="/" />;
-  }
-
   return (
+    <>
+      {/* This is needed for the validation functionality above */}
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+        {/* show alert if server response is bad */}
+        <Alert
+          dismissible
+          onClose={() => setShowAlert(false)}
+          show={showAlert}
+          variant="danger"
+        >
+          Something went wrong with your signup!
+        </Alert>
 
-    <div className="signup d-flex flex-column align-items-center justify-content-center text-center">
-      <Header />
-      <form onSubmit={handleFormSubmit} className="signup-form d-flex flex-column">
-        {/* USERNAME */}
-        <label htmlFor="username">USERNAME</label>
-        <input
-          className="form-input"
-          value={formState.username}
-          placeholder="Your username"
-          name="username"
-          type="username"
-          onChange={handleChange}
-        />
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor="username">Username</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Your username"
+            name="username"
+            onChange={handleInputChange}
+            value={userFormData.username}
+            required
+          />
+          <Form.Control.Feedback type="invalid">
+            Username is required!
+          </Form.Control.Feedback>
+        </Form.Group>
 
-        {/* EMAIL */}
-        <label htmlFor="email">EMAIL</label>
-        <input
-          className="form-input"
-          value={formState.email}
-          placeholder="youremail@gmail.com"
-          name="email"
-          type="email"
-          onChange={handleChange}
-        />
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor="email">Email</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="Your email address"
+            name="email"
+            onChange={handleInputChange}
+            value={userFormData.email}
+            required
+          />
+          <Form.Control.Feedback type="invalid">
+            Email is required!
+          </Form.Control.Feedback>
+        </Form.Group>
 
-        {/*PASSWORD */}
-        <label htmlFor="password">PASSWORD</label>
-        <input
-          className="form-input"
-          value={formState.password}
-          placeholder="********"
-          name="password"
-          type="password"
-          onChange={handleChange}
-        />
-
-        {/* SIGNUP BUTTON */}
-        <div className="btn-div">
-          <button disabled={!(formState.username && formState.email && formState.password)}
-            className="signup-btn mx-auto my-auto"
-          >Sign-Up</button>
-        </div>
-
-        {/* LOGIN LINK */}
-        <p className="link-btn">
-          Do you  have an account?{' '}
-          <Link to="/login">Log-in</Link>
-        </p>
-        {showAlert && <div className="err-message">Signup failed</div>}
-      </form>
-    </div>
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Your password"
+            name="password"
+            onChange={handleInputChange}
+            value={userFormData.password}
+            required
+          />
+          <Form.Control.Feedback type="invalid">
+            Password is required!
+          </Form.Control.Feedback>
+        </Form.Group>
+        <Button
+          disabled={
+            !(
+              userFormData.username &&
+              userFormData.email &&
+              userFormData.password
+            )
+          }
+          type="submit"
+          variant="success"
+        >
+          Submit
+        </Button>
+      </Form>
+    </>
   );
-}
+};
+
+export default Signup
