@@ -5,6 +5,8 @@ import App from './App.jsx';
 import Home from './pages/Home.jsx';
 //import Login from './pages/Login.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
+import Profile from './pages/Profile.jsx'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,8 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
+      {path:"/profile",
+        element: <Profile />}
     ],
   },
 ]);
