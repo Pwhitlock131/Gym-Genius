@@ -1,6 +1,5 @@
 // import React from 'react';
 // import './Home.css'; // Import the CSS file
-
 // const Home = () => {
 //   return (
 //     <div className="home-container">
@@ -12,7 +11,6 @@
 //     </div>
 //   );
 // };
-
 // export default Home;
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
@@ -23,16 +21,12 @@ import Header from "./Header.jsx"
 import heart from "/images/circle.png"
 
 export default function Home() {
-
   // const loggedIn = Auth.loggedIn();
   // const location = useLocation();
   // const isHomePage = location.pathname === '/';
   // const isLoginPage = location.pathname === '/login';
   // const isSignupPage = location.pathname === '/signup';
-
-
   return (
-
     <>
     <h1>MY HOMEPAGE</h1>
     </>
