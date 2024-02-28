@@ -1,37 +1,116 @@
-import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { REGISTER_USER } from '../graphql/mutations';
+// import React, { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import { createUser } from "../utils/API";
+import Auth from "../utils/auth";
+import Header from "../components/Header";
 
-const Register = ({ history }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
-  const [registerUser] = useMutation(REGISTER_USER, {
-    onCompleted: (data) => {
-      localStorage.setItem('token', data.register.token);
-      history.push('/dashboard');
-    },
-    onError: (error) => {
-      console.error(error);
-      // Handle error (e.g., show error message)
-    },
+export default function Signup() {
+  const loggedIn = Auth.loggedIn();
+
+  // set up the orginal state of the form
+  const [formState, setFormState] = useState({
+    username: "",
+    email: "",
+    password: "",
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    registerUser({ variables: { email, password } });
+  // set state for alert
+  const [showAlert, setShowAlert] = useState(false);
+
+  // update state based on form input
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // use try/catch to handle errors
+    try {
+      // create new users
+      const response = await createUser(formState);
+
+      // check the response
+      if (!response.ok) {
+        throw new Error("OOOPS something went wrong!");
+      }
+
+      // get token and user data from server
+      const { token } = await response.json();
+      // use authenticaiton functionality
+      Auth.login(token);
+
+
+    } catch (err) {
+      console.error(err);
+      setShowAlert(true);
+    }
+  };
+
+  // Is the user is logged in, redirect to the home page
+  if (loggedIn) {
+    return <Navigate to="/" />;
+  }
+
   return (
-    <div>
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <button type="submit">Register</button>
+
+    <div className="signup d-flex flex-column align-items-center justify-content-center text-center">
+      <Header />
+      <form onSubmit={handleFormSubmit} className="signup-form d-flex flex-column">
+        {/* USERNAME */}
+        <label htmlFor="username">USERNAME</label>
+        <input
+          className="form-input"
+          value={formState.username}
+          placeholder="Your username"
+          name="username"
+          type="username"
+          onChange={handleChange}
+        />
+
+        {/* EMAIL */}
+        <label htmlFor="email">EMAIL</label>
+        <input
+          className="form-input"
+          value={formState.email}
+          placeholder="youremail@gmail.com"
+          name="email"
+          type="email"
+          onChange={handleChange}
+        />
+
+        {/*PASSWORD */}
+        <label htmlFor="password">PASSWORD</label>
+        <input
+          className="form-input"
+          value={formState.password}
+          placeholder="********"
+          name="password"
+          type="password"
+          onChange={handleChange}
+        />
+
+        {/* SIGNUP BUTTON */}
+        <div className="btn-div">
+          <button disabled={!(formState.username && formState.email && formState.password)}
+            className="signup-btn mx-auto my-auto"
+          >Sign-Up</button>
+        </div>
+
+        {/* LOGIN LINK */}
+        <p className="link-btn">
+          Do you  have an account?{' '}
+          <Link to="/login">Log-in</Link>
+        </p>
+        {showAlert && <div className="err-message">Signup failed</div>}
       </form>
     </div>
   );
-};
-
-export default Register;
+}

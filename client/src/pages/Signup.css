@@ -1,24 +1,43 @@
-/* Signup.css */
+:root {
+  --main-color: #26cc87;
+}
 
-.signup-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  .signup,
+  .history {
+    height: 100vh;
   }
   
-  .signup-title {
-    font-size: 36px;
-    margin-bottom: 20px;
+  .signup-form {
+    width: 300px;
+    margin: 20px 0 90px 0;
   }
   
-  .signup-info {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #555;
+  .signup-form label {
+    text-align: left;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   }
   
-
+  .signup-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    border-width: 1px;
+  }
+  
+  .btn-div {
+    margin: 18px auto;
+  }
+  
+  .signup-btn {
+    width: 300px;
+    height: 46px;
+  }
+  
+  .link-btn {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  }
+  
+  .err-message {
+    color: red;
+  }
   

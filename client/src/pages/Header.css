@@ -1,27 +1,4 @@
-/* Home.css */
-
-/* .home-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .home-title {
-    font-size: 30px;
-    margin-bottom: 20px;
-    color: #333; /* Change the color as needed */
-  /* } */
-/*   
-  .home-description {
-    font-size: 18px;
-    line-height: 1.5;
-    color: #555;
-  } */ */
-  
-  /* Add more styles as necessary */
-
-  :root {
+:root {
     --main-color: #26cc87;
 }
 
