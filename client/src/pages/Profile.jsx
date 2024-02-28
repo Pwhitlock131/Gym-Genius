@@ -45,7 +45,7 @@ const Profile = () => {
         <div class="card-body">
           <h5 class="card-title">{workout.name}</h5>
           <h6 class="card-subtitle mb-2 text-body-secondary">{workout.type}</h6>
-          <p class="card-text">Durantion: {workout.duration} minutes</p>
+          <p class="card-text">Duration: {workout.duration} minutes</p>
           <p class="card-text">{workout.createdAt}</p>
         </div>
       </div>
