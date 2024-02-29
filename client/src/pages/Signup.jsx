@@ -11,6 +11,10 @@ const Signup = () => {
     username: '',
     email: '',
     password: '',
+    name: '',
+    age: '',
+    height: '',
+    weightGoal: '',
   });
   // set state for form validation
   const [validated] = useState(false);
@@ -116,6 +120,67 @@ const Signup = () => {
             Password is required!
           </Form.Control.Feedback>
         </Form.Group>
+
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor="name">name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Your name"
+            name="name"
+            onChange={handleInputChange}
+            value={userFormData.name}
+            required
+          />
+          <Form.Control.Feedback type="invalid">
+            name is required!
+          </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor="age">age</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Your age"
+            name="age"
+            onChange={handleInputChange}
+            value={userFormData.age}
+            required
+          />
+          <Form.Control.Feedback type="invalid">
+            age is required!
+          </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor="height">height</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Your height"
+            name="height"
+            onChange={handleInputChange}
+            value={userFormData.height}
+            required
+          />
+          <Form.Control.Feedback type="invalid">
+            height is required!
+          </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group className='mb-3'>
+          <Form.Label htmlFor="weightGoal">weightGoal</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Your weightGoal"
+            name="weightGoal"
+            onChange={handleInputChange}
+            value={userFormData.weightGoal}
+            required
+          />
+          <Form.Control.Feedback type="invalid">
+          weightGoal is required!
+          </Form.Control.Feedback>
+        </Form.Group>
+
         <Button
           disabled={
             !(
