@@ -1,24 +1,28 @@
 /* Profile.css */
 
-.profile-container {
+.container {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    border: 3px solid #900404;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(108, 2, 2, 0.1);
+    background-color: #090a0b;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
   }
   
-  .profile-title {
-    font-size: 36px;
+  .title {
+    font-size: 26px;
     margin-bottom: 20px;
+    color:#900404
   }
   
-  .profile-info {
+  .row {
     font-size: 16px;
     line-height: 1.5;
-    color: #555;
+    color: #ba0505;
   }
-  
-  /* Add more styles as necessary */
+
+
   
