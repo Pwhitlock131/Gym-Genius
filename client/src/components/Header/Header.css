@@ -1,5 +1,6 @@
 :root {
     --main-color: #cc2626;
+
 }
 
 .heart-icon {
@@ -37,7 +38,9 @@
   .nav-link {
     text-align: right;
     margin-right: 5px;
+
     font-weight: 500px;
+
     color: white;
   }
   
@@ -45,5 +48,3 @@
     color: var(--main-color);
   }
 
-  
-  
