@@ -145,7 +145,6 @@ const Signup = () => {
             type="number" 
             min = {0}
             step={1}
-           type="text"
             placeholder="Your age"
             name="age"
             onChange={handleInputChange}
@@ -163,7 +162,6 @@ const Signup = () => {
             type="number"
             min = {0}
             step={1}
-            type="text"
             placeholder="Your height"
             name="height"
             onChange={handleInputChange}
@@ -181,7 +179,6 @@ const Signup = () => {
             type="number"
             min = {0}
             step={1}
-            type="text"
             placeholder="Your weightGoal"
             name="weightGoal"
             onChange={handleInputChange}

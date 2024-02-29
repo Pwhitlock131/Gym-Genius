@@ -5,7 +5,7 @@ Full Stack MERN Application
 ----------------------------------------------------------------------
 
 # Description
-Welcome to Gym Genius! This is a website that allows the fitness buff to track his/her daily workouts, meet goals, and stay healthy. Users can store all of his/her workouts and attach them to their personal accounts. 
+Welcome to Gym Genius! This is a website that allows fitness buffs to track their daily workouts, meet goals, and stay healthy. Users can store all of their workouts and attach them to their personal accounts. 
 
 ----------------------------------------------------------------------
 
@@ -60,6 +60,7 @@ THEN the user will be able to edit or delete respective trip data.
 ----------------------------------------------------------------------
 
 # Link
+https://github.com/Pwhitlock131/Gym-Genius
 
 
 ----------------------------------------------------------------------
