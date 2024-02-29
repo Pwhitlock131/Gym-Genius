@@ -16,19 +16,23 @@ import React from "react";
 // import { Navbar, Nav } from "react-bootstrap";
 // import { Link, useLocation } from "react-router-dom";
 // import Auth from "../utils/auth"
-// import heart from "/images/stethheart.png"
+import heart from "/images/circle.png"
 // import Header from "./Header.jsx"
 import '../../src/components/Navbar/Navbar.jsx'
 import '../../src/components/Posts/Calender.jsx';
-export default function Home() {
+
   // const loggedIn = Auth.loggedIn();
   // const location = useLocation();
   // const isHomePage = location.pathname === '/';
   // const isLoginPage = location.pathname === '/login';
   // const isSignupPage = location.pathname === '/signup';
-  return (
-    <>
-    <h1>MY HOMEPAGE</h1>
-    </>
-  );
-}
+
+  const Home = ( ) => {
+    return (
+      <div>
+      <p> Hello </p>
+      </div>
+    );
+  }
+  
+export default Home 
