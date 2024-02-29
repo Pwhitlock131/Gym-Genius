@@ -8,7 +8,7 @@ import {
     createHttpLink,
   } from "@apollo/client";
   import { setContext } from '@apollo/client/link/context';
-  import Header from './pages/Header';
+  import Header from './components/Header/Header';
 const httpLink = createHttpLink({
     uri: '/graphql',
   });

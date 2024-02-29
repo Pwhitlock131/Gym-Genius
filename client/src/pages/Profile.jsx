@@ -6,7 +6,7 @@ const Profile = () => {
   // You can fetch user data or any necessary information here
   // sample user data
   const user = {
-    username: 'exampleUser',
+    username: 'Sylvester Cat',
     email: 'user@example.com',
     age: 30,
     height: '5\'10"',
@@ -20,9 +20,23 @@ const Profile = () => {
 
       },
       {
-        name: "jogging",
-        duration: 60,
+        name: "cycling",
+        duration: 30,
+        createdAt: "2/28/2024",
+        type: 'cardio',
+
+      },
+      {
+        name: "rowing",
+        duration: 45,
         createdAt: "2/27/2024",
+        type: 'cardio',
+
+      },
+      {
+        name: "boxing",
+        duration: 20,
+        createdAt: "2/28/2024",
         type: 'cardio',
 
       },
@@ -31,8 +45,8 @@ const Profile = () => {
 
   return (
     <div className="container">
-      <h1>{user.username}'s Profile</h1>
-      <div>
+      <h3>{user.username}'s Profile</h3>
+      <div className="title">
         <p><strong>Username:</strong> {user.username}</p>
         <p><strong>Email:</strong> {user.email}</p>
         <p><strong>Age:</strong> {user.age}</p>
