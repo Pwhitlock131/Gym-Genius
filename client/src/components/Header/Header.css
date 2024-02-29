@@ -1,0 +1,47 @@
+ /* :root { 
+    --main-color: #26cc87;
+}
+
+.heart-icon {
+    height: 24px;
+    margin-right: 3px;
+  }
+  
+  .brand {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  .brand-logged {
+    margin-left: 5px;
+    font-size: 20px;
+  }
+  
+  .brand-new {
+    margin-top: 20px;
+  }
+  
+  .brand-text {
+    color: black;
+  }
+  
+  .brand-text:hover {
+    color: black;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='whitesmoke' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .nav-link {
+    text-align: right;
+    margin-right: 5px;
+    font-weight: 500;
+    color: white;
+  }
+  
+  .nav-link:hover {
+    color: var(--main-color);
+  }
+   */ 
