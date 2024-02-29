@@ -34,10 +34,13 @@ const Signup = () => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
+
+    console.log(userFormData);
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    
 
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -139,7 +142,10 @@ const Signup = () => {
         <Form.Group className='mb-3'>
           <Form.Label htmlFor="age">age</Form.Label>
           <Form.Control
-            type="text"
+            type="number" 
+            min = {0}
+            step={1}
+           type="text"
             placeholder="Your age"
             name="age"
             onChange={handleInputChange}
@@ -154,6 +160,9 @@ const Signup = () => {
         <Form.Group className='mb-3'>
           <Form.Label htmlFor="height">height</Form.Label>
           <Form.Control
+            type="number"
+            min = {0}
+            step={1}
             type="text"
             placeholder="Your height"
             name="height"
@@ -169,6 +178,9 @@ const Signup = () => {
         <Form.Group className='mb-3'>
           <Form.Label htmlFor="weightGoal">weightGoal</Form.Label>
           <Form.Control
+            type="number"
+            min = {0}
+            step={1}
             type="text"
             placeholder="Your weightGoal"
             name="weightGoal"

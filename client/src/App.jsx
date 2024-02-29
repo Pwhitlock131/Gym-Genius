@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import { Outlet } from 'react-router-dom';
 import {
-
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
@@ -11,7 +10,6 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/index'
-
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -42,3 +40,4 @@ function App() {
   );
 }
 export default App;
+//tyring to push 

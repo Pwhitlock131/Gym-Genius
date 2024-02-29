@@ -1,5 +1,10 @@
+
+ /* :root { 
+    --main-color: #26cc87;
+
 :root {
     --main-color: #cc2626;
+
 
 }
 
@@ -39,7 +44,6 @@
     text-align: right;
     margin-right: 5px;
 
-    font-weight: 500px;
 
     color: white;
   }
