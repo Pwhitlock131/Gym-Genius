@@ -30,7 +30,7 @@ import '../../src/components/Posts/Calender.jsx';
   const Home = ( ) => {
     return (
       <div>
-      <p> Hello </p>
+      <h1> Welcome to Gym Genius! This is a website that allows the fitness buff to track their daily workouts, meet goals, and stay healthy. Users can store all of their workouts and attach them to their personal accounts.  </h1>
       </div>
     );
   }
